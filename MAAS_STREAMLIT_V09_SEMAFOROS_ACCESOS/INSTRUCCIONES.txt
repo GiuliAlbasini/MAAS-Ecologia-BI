@@ -1,0 +1,38 @@
+MAAS ECOLOGIA 4 - DASHBOARD V09: SEMAFOROS + ACCESO POR MODULO
+
+MODO RECOMENDADO: ACTUALIZAR TU CARPETA STREAMLIT ACTUAL SIN PERDER CLAVES
+
+1. En la ventana de PowerShell donde corre Streamlit, presiona Ctrl+C.
+2. Haz una copia de respaldo LOCAL de tu carpeta actual de Streamlit V08.
+3. Descomprime este ZIP. Copia TODO SU CONTENIDO (app_maas_4.py,
+   maas_ui.py, maas_auth.py, pages_v08, etc.) DENTRO de la carpeta
+   Streamlit actual (MAAS_STREAMLIT_V08_MULTIPAGINAS) y reemplaza
+   los archivos anteriores cuando Windows lo pregunte.
+4. NO borres ni modifiques .streamlit/secrets.toml (guarda las claves
+   protegidas); ese archivo NO esta incluido en el ZIP.
+5. Abre PowerShell en esa carpeta y ejecuta:
+   py -m pip install -r requirements_streamlit.txt
+   py -m streamlit run .\app_maas_4.py
+6. Inicio y Proyectos abriran SIN contraseña. Al entrar a Gerencia,
+   Administración, Ingeniería, Operaciones, Contratos o Ventas se
+   solicitarán credenciales SOLO para ese módulo.
+7. Prueba Gerencia con tu usuario 'gerencia' y su contraseña actual;
+   al abrir otro modulo debera solicitarla de nuevo.
+8. Para crear otras cuentas: py .\configurar_usuarios.py
+
+OPCION ALTERNATIVA (VERSION NUEVA EN CARPETA APARTE)
+Extrae el ZIP en una carpeta nueva y copia en TU computador el archivo
+privado .streamlit/secrets.toml desde V08 hacia esa carpeta nueva.
+Nunca envíes este archivo a ChatGPT ni lo publiques.
+
+SEGURIDAD Y DATOS
+- Acceso por contraseña para DEMOSTRACION LOCAL, no equivale a SSO,
+  HTTPS ni permisos independientes a SQL Server.
+- Antes de publicar con datos empresariales reales: validar perfiles con
+  MAAS y configurar seguridad empresarial también en el origen SQL.
+- Los proyectos incluyen fechas, estados y gastos SIMULADOS para tesis.
+- Ventas BSC y detalle siguen pendientes de conciliación.
+- Cuatro KPI departamentales no homologados se mantienen sin mapear.
+- Los datos se leen desde MAAS_ECOLOGIA_4. El dashboard no escribe en SQL.
+- El comparativo utiliza avance acumulado vs 100% de la meta anual; NO
+  representa la proyección al día que no está guardada en la FACT.

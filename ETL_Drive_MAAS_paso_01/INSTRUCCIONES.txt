@@ -1,0 +1,29 @@
+MAAS ECOLOGIA 4  |  PASO 1: EXTRACCION DESDE GOOGLE DRIVE
+========================================================
+
+Este programa descarga 3 archivos desde Drive (SOLO LECTURA), verifica hojas y
+registra versiones usando SHA-256. NO toca SQL Server y NO modifica Drive.
+
+1) Descomprimir el ZIP en una carpeta nueva, por ejemplo ETL_Drive_MAAS.
+2) Crear un proyecto en Google Cloud (console.cloud.google.com).
+3) Habilitar Google Drive API en ese proyecto.
+4) Configurar la pantalla de consentimiento OAuth, incluyendo tu cuenta como
+   usuaria de prueba si la aplicacion está en modo Testing.
+5) Crear CLIENTE OAuth -> tipo "Aplicacion de escritorio".
+6) Descargar el JSON OAuth, renombrarlo como credentials.json y guardarlo en
+   la subcarpeta config (crear config si no existe).
+   NO compartir este archivo ni token_drive.json con nadie ni subirlos a GitHub.
+7) Abrir PowerShell en la carpeta y ejecutar:
+      py -m pip install -r requirements.txt
+      py .\01_extraer_desde_drive.py
+8) En la primera ejecución se abrirá Google para autorizar permisos de lectura.
+9) Verificar que aparezca "EXTRACCION OK: 3 fuentes verificadas".
+
+El programa utiliza tu acceso a Google Drive, no las credenciales de ChatGPT.
+Los 3 xlsx aparecerán en datos_fuente/versiones/ y su identificación en
+ datos_fuente/ultima_extraccion.json.
+
+IMPORTANTE: El tercer archivo es una hoja de cálculo nativa de Google; Python
+lo exporta a Excel para usarlo con pandas en el siguiente paso.
+
+Este proceso no necesita hacer pública la planilla de MAAS.

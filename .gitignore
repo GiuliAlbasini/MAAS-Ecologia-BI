@@ -1,0 +1,45 @@
+# Credenciales y configuraciones privadas
+.env
+.env.*
+!.env.example
+token.json
+credentials.json
+client_secret*.json
+service_account*.json
+secrets_respaldo.toml
+secrets.toml
+.streamlit/secrets.toml
+
+# Archivos temporales
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.lock
+*.log
+
+# Datos generados por el ETL
+datos_transformados/
+logs_etl/
+
+# Respaldos
+RESPALDO_*/
+RESPALDOS_MENU/
+RESPALDO_ACCESOS_*/
+*.bak
+*.bacpac
+*.mdf
+*.ldf
+
+# Archivos de Windows
+Thumbs.db
+.DS_Store
+# Proteccion adicional de Google
+*token*.json
+*credentials*.json
+*credenciales*.json
+
+*BACKUP*.py
+*backup*.py
+*RESPALDO*.py
+*respaldo*.py
